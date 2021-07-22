@@ -1,59 +1,84 @@
 \documentclass[conference]{IEEEtran}
 
-\title{Analisis kekuatan}
+\title{Implementasi Wireless Local Area Network}
 
-\author{Andrian Syah\IEEEauthorrefmark{1}, Hani Khairiyah\IEEEauthorrefmark{2}\\
+\author{Fajar Bimantara\IEEEauthorrefmark{1}, Muhammad Riyadhtul Akbar\IEEEauthorrefmark{2}\\
 \textit{Fakultas Teknologi Informasi}\\
 \textit{Teknik Komputer}\\
 \textit{Institut Teknologi Batam}\\
 Batam, Indonesia\\
-Email: \{\IEEEauthorrefmark{1}1922009, \IEEEauthorrefmark{2}1922001\}@student.iteba.ac.id}
+Email: \{\IEEEauthorrefmark{1}1922027, \IEEEauthorrefmark{2}1922011\}@student.iteba.ac.id}
 
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-    Implementasi jaringan wireless (atau umum disebut sebagai jaringan WiFi) telah diatur oleh standar
-    IEEE 802.11. Jaringan WiFi digunakan untuk menghubungkan berbagai perangkat dan berbagi data.
-    Analisis Wireless atau jaringan nirkabel menggunakan aplikasi InSSIDer ,
-    Mengumpulkan Informasi yang ada pada jaringan Wireless sekitar dan mengambil data 
-    untuk dianalisis .
+Jaringan wireless LAN adalah jaringan yang mengkoneksikan dua komputer atau lebih menggunakan
+sinyal radio, cocok untuk berbagi-pakai file, printer, atau akses internet. Dengan mempergunakan
+perangkat radio maka akan dapat membuat LAN tanpa menggunakan kabel data yang umum dipakai dalam
+sebuah jaringan komputer. Setiap PC pada jaringan wireless dilengkapi dengan sebuah radio tranceiver atau
+biasanya disebut adapter atau kartu Wireless LAN yang akan mengirim dan menerima sinyal radio dari dan
+ke PC lain dalam jaringan. Teknologi wireless memungkinkan jaringan ini dapat dipasang di tempat
+dimana jaringan kabel tidak dapat dipasang.
 \end{abstract}
 
 \begin{IEEEkeywords}
-    IEEE 802.11,InSSIDer,Wireless
+    wireless lan, network
 \end{IEEEkeywords}
 
 \section{Introduction}
-Seiring berkembang nya zaman Teknologi semakin tidak bisa dihindarkan, 
-kita sebagai manusia tidak dapat menghindar dari adanya teknologi tersebut,
-banyak nya teknologi membuat banyak hal berubah sehingga menjadikan teknologi tersebut 
-adalah bagian dari hidup. salah satu dari teknologi tersebut adalah teknologi jaringan nirkabel
-atau bisa disebut teknologi jaringan Wireless , yang dimana banyak digunakan di berbagai macam tempat 
-contoh nya dikampus,kafe,kedai kopi, dan lain-lain .
+Jaringan wireless LAN adalah jaringan yang mengkoneksikan dua komputer atau lebih menggunakan sinyal radio, cocok untuk berbagipakai file, printer, atau akses internet. Bila user ingin mengkoneksikan dua komputer atau lebih di lokasi yang sulit atau tidak mungkin untuk memasang kabel jaringan, sebuah jaringan wireless (tanpa kabel) mungkin cocok untuk
+diterapkan.
+Jaringan komunikasi wireless memberikan kemudahan dan fleksibilitas yang tinggi bagi
+para pemakainya untuk dapat mengadakan hubungan komunikasi dengan sesama pemakai jaringan wireless maupun dengan pemakai lain yang terhubung dengan jaringan yang memakai media transmisi kabel (wired network). Wireless LAN (WLAN) menyediakan suatu alternatif bagi LAN tradisional berbasis twisted pair, kabel
+koaksial, dan serat optik Wireless LAN mengirim dan menerima data melalui udara, dan meminimalkan penggunaan sambungan kabel. Jadi, Wireless LAN memiliki fleksibelitas, mendukung mobilitas, memiliki
+teknik frequency reuse, selular dan handover, menawarkan efisiensi dalam waktu (penginstalan) dan biaya (pemeliharaan dan penginstalan ulang di tempat lain), mengurangi pemakaian kabel dan penambahan jumlah
+pengguna dapat dilakukan dengan mudah dan
+cepat.
 
-perkembangan Wireless ini sangat pesat sekali,karena flexible tanpa menggunakan kabel dan menghemat biaya 
-, namun dari pernyataan tersebut Wireless juga banyak kelebihan dan kekurangan nya . 
-Sebelumnya dianggap bahwa jaringan kabel lebih cepat dan lebih aman daripada jaringan nirkabel.
-Namun peningkatan berkelanjutan pada teknologi jaringan nirkabel seperti standar jaringan Wireless
- telah membuat banyak perbedaan kecepatan dan keamanan antara jaringan kabel dan nirkabel tersebut~.
-\section{Related Work}
-Wireless Network atau biasa yang dikenal dengan Wi-Fi merupakan jaringan nirkabel yang digunakan
-untuk mengkoneksikan dari satu perangkat ke perangkat lainnya ,
-contoh nya Handphone,Laptop,Personal Computer(PC)
-ke router jaringan yang sudah disambungkan internet pada port yang disediakan . biasa nya Wireless Network  
-erat hubungannya dengan bidang telekomunikasi, teknologi informasi, dan teknik komputer dan jaringan 
-Ada banyak jenis jaringan dan cara mengklasifikasikannya. Salah satu cara memandang jaringan adalah dari segi cakupan geografisnya yaitu:
+\section{Komponen Wireless Lan}
+Komponen utama dalam membangun
+sebuah jaringan Wireless LAN adalah : 
+-Access Point 
+Merupakan perangkat yang menjadi sentral koneksi dari klien ke ISP. Berfungsi mengkonversikan sinyal frekuensi radio (RF) menjadi sinyal digital yang akan disalurkan melalui kabel, atau disalurkan ke perangkat WLAN yang lain dengan dikonversikan ulang menjadi sinyal frekuensi radio
 
-\section{Scenario}
-*under way
-\section{Hasil dan Pembahasan}
-*under way
+-Wireless LAN Interface
+Merupakan device yang dipasang di AccessPoint atau Mobile/Desktop PC, device yang dikembangkan secara massal adalah dalam bentuk PCMCIA (Personal Computer Memory Card International Association) card.
+
+-Wired LAN
+Merupakan jaringan kabel yang sudah ada, jika wired LAN tidak ada maka hanya sesama WLAN saling terkoneksi.
+
+-Mobile/Desktop PC
+Merupakan perangkat keras untuk klien, mobile PC pada umumnya sudah terpasang port PCMCIA sedangkan desktop PC harus ditambahkan PC card PCMCIA dalam bentuk ISA (Industry Standard Architecture) atau PCI
+(Peripheral Component Interconnect) card.
+
+-Topologi Wireless Lan
+Wireless LAN memungkinkan dua bentuk koneksi, yang dikenal sebagai Ad-Hoc dan mode Infrastructure.
+
+-Mode Ad-Hoc
+Mode Ad-Hoc adalah suatu kondisi jaringan wireless yang tidak menggunakan access point.Artinya, antar client langsung terkoneksi satu dengan yang lainnya. Jika merasa asing dengan istilah Ad-Hoc, mungkin istilah Peer-to-peer dapat lebih mempermudah mengenali koneksi Ad-Hoc. Prinsip kerjanya sama saja dengan
+Peer-to-peer. Disini setiap client akan saling terkoneksi secara langsung.
+
+
+\section{Mode Infrastructure}
+Model infrastructure adalah kondisi suatu jaringan dengan menggunakan suatu titik pusat yaitu access point. Semua client terhubung ke jaringan harus terkoneksi ke access point terlebih dahulu, baru kemudian dapat mengakses resource dari network/client lain yang ada. Untuk topologi infrastruktur, tiap PC mengirim dan menerima data dari sebuah titik akses, yang dipasang di dinding atau langit-langit berupa
+sebuah kotak kecil berantena. Saat titik akses menerima data, ia akan mengirimkan kembali
+sinyal radio tersebut (dengan jangkauan yang lebih jauh) ke PC yang berada di area cakupannya, atau dapat mentransfer data melalui jaringan Ethernet kabel. Titik akses pada sebuah jaringan infrastruktur memiliki area cakupan yang lebih besar.
+
+\section{Cara Kerja Wireless Lan}
+Setiap PC pada jaringan wireless dilengkapi dengan sebuah radio tranceiver, atau biasanya disebut adapter atau kartu Wireless LAN, yang akan mengirim dan menerima sinyal radio dari dan ke PC lain dalam jaringan.
+Mirip dengan jaringan Ethernet kabel, sebuah Wireless LAN mengirim data dalam bentuk paket. Setiap adapter memiliki nomor ID yang permanen dan unik yang berfungsi sebagai sebuah alamat, dan tiap paket selain berisi data juga menyertakan alamat penerima dan pengirim paket tersebut. Sama dengan sebuah adapter Ethernet, sebuah kartu Wireless LAN akan memeriksa kondisi jaringan sebelum mengirim paket ke dalamnya. Bila jaringan dalam keadaan kosong, maka paket langsung dikirimkan.
+
 \section{Kesimpulan}
-*under way
-\bibliographystyle{IEEtran}
-\bibliography{referensi.bib}
+Sistem Wireless LAN memberi kemudahan bagi user untuk mengakses informasi realtime dimanapun mereka berada. Faktor mobilitas ini mendukung produktifitas dan kesempatan layanan yang tidak mungkin dilakukan dengan jaringan kabe. Kecepatan dan kemudahan pemasangan / instalasi Wireless LAN dapat dipasang dengan cepat dan mudah, dan dapat membatasi keperluan pemasangan kabel melalui dinding dan langit-langit (plafon).
 
+\bibliographystyle{IEEtran}
+http://www.windowsnetworking.com
+Jonathan L, Pejman R,802.11 Wireless
+Lan Fundamentals, Cisco Press, 2007
+Spencer M., Build Your Own Wireless
+Lan, McGraw-Hill, 2002
+\bibliography{referensi.bib}
 
 \end{document}
