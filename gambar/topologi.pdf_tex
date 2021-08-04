@@ -1,58 +1,56 @@
-%% Creator: Inkscape 1.1 (c68e22c387, 2021-05-23), www.inkscape.org
-%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'topologi.pdf' (pdf, eps, ps)
-%%
-%% To include the image in your LaTeX document, write
-%%   \input{<filename>.pdf_tex}
-%%  instead of
-%%   \includegraphics{<filename>.pdf}
-%% To scale the image, write
-%%   \def\svgwidth{<desired width>}
-%%   \input{<filename>.pdf_tex}
-%%  instead of
-%%   \includegraphics[width=<desired width>]{<filename>.pdf}
-%%
-%% Images with a different path to the parent latex file can
-%% be accessed with the `import' package (which may need to be
-%% installed) using
-%%   \usepackage{import}
-%% in the preamble, and then including the image with
-%%   \import{<path to file>}{<filename>.pdf_tex}
-%% Alternatively, one can specify
-%%   \graphicspath{{<path to file>/}}
-%% 
-%% For more information, please see info/svg-inkscape on CTAN:
-%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
-%%
-\begingroup%
-  \makeatletter%
-  \providecommand\color[2][]{%
-    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
-    \renewcommand\color[2][]{}%
-  }%
-  \providecommand\transparent[1]{%
-    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
-    \renewcommand\transparent[1]{}%
-  }%
-  \providecommand\rotatebox[2]{#2}%
-  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
-  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
-  \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{216bp}%
-    \ifx\svgscale\undefined%
-      \relax%
-    \else%
-      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
-    \fi%
-  \else%
-    \setlength{\unitlength}{\svgwidth}%
-  \fi%
-  \global\let\svgwidth\undefined%
-  \global\let\svgscale\undefined%
-  \makeatother%
-  \begin{picture}(1,0.62847222)%
-    \lineheight{1}%
-    \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{topologi.pdf}}%
-  \end{picture}%
-\endgroup%
+%//
+// This file is part of an OMNeT++/OMNEST simulation example.
+//
+// Copyright (C) 1992-2015 Andras Varga
+//
+// This file is distributed WITHOUT ANY WARRANTY. See the file
+// `license' for details on this and other legal matters.
+//
+
+
+//
+// Interface of modules types that can be used as a node in a Hypercube;
+// see comment at the Hypercube module.
+//
+moduleinterface IHypercubeNode
+{
+    parameters:
+        int address;
+        int dim;
+    gates:
+        inout port[dim];
+}
+
+
+//
+// Defines Hypercube topology.
+//
+// When the user creates an actual hypercube, he substitutes the name
+// of an existing module type (e.g. HypercubeNode) for the nodetype
+// parameter. The module type implements the algorithm the user wants
+// to simulate and it must have the same gates that the HCNode type has.
+//
+// The topology template code can be used through file import.
+// See hc_net.ned
+//
+module Hypercube
+{
+    parameters:
+        int dim;
+        string nodetype;
+    submodules:
+        node[2^dim]: <nodetype> like IHypercubeNode {
+            parameters:
+                address = index; // module's position in (2^dim)-size vector
+                dim = dim;
+        }
+    connections:
+        for i=0..2^dim-1, for j=0..dim-1 {
+            // connect node i to the node whose index differs only in the
+            // jth bit (# stands for bitwise XOR); plus we need an "if" so that
+            // we don't try to connect a gate from both directions.
+            node[i].port[j] <--> node[i#(1<<j)].port[j] if (i < i#(1<<j));
+        }
+}
+
+
